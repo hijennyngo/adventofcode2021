@@ -1,3 +1,3 @@
-f = open('README.md')
-for line in f:
+file = open('README.md')
+for line in file:
   print(line)
