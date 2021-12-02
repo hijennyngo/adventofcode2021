@@ -5,11 +5,9 @@ for line in file:
 horizontal = 0
 depth = 0
 aim = 0
-value = 0
-move = ''
 for i in instructions:
-  value = int(i[-1])
   move = str(i[:-2])
+  value = int(i[-1])
   if move == 'forward':
     horizontal += value
     depth += (aim * value)
