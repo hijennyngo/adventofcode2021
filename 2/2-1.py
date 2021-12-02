@@ -10,10 +10,10 @@ for i in instructions:
   value = int(i[-1])
   move = str(i[:-2])
   if move == 'forward':
-  	horizontal += value
+    horizontal += value
   elif move == 'down':
-  	depth += value
+    depth += value
   elif move == 'up':
-  	depth -= value
+    depth -= value
 final = horizontal * depth
 print(final)
