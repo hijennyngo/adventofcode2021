@@ -1,18 +1,17 @@
-import numpy
 file = open('3.txt')
+numbers = []
+for line in file:
+  numbers.append(line.rstrip())
 gamma = ''
 epsilon = ''
-matrix = []
-for line in file:
-  matrix.append(list(line.rstrip()))
-transposed_matrix = numpy.transpose(matrix)
-for position in transposed_matrix:
+position = 0
+for column in range(len(numbers[0])):
   zeros = 0
   ones = 0
-  for value in position:
-    if value == '0':
+  for n in numbers:
+    if n[position] == '0':
       zeros += 1
-    elif value =='1':
+    elif n[position] =='1':
       ones += 1
   if zeros > ones:
     gamma += '0'
@@ -20,5 +19,6 @@ for position in transposed_matrix:
   else:
     gamma += '1'
     epsilon += '0'
+  position += 1
 power = int(gamma, 2) * int(epsilon, 2)
 print(power)
