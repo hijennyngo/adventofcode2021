@@ -4,47 +4,31 @@ for line in file:
   numbers.append(line.rstrip())
 oxygen = numbers
 co2 = numbers
-position = 0
 for column in range(len(numbers[0])):
   if len(oxygen) > 1:
-    zeros = 0
-    ones = 0
-    new_oxygen = []
+    zeros = []
+    ones = []
     for n in oxygen:
-      if n[position] == '0':
-        zeros += 1
-      elif n[position] =='1':
-        ones += 1
-    if zeros > ones:
-      for n in oxygen:
-        if n[position] =='0':
-          new_oxygen.append(n)
+      if n[column] == '0':
+        zeros.append(n)
+      elif n[column] =='1':
+        ones.append(n)
+    if len(zeros) > len(ones):
+      oxygen = zeros
     else:
-      for n in oxygen:
-        if n[position] =='1':
-          new_oxygen.append(n)
-    oxygen = new_oxygen
-  position += 1
-position = 0
+      oxygen = ones
 for column in range(len(numbers[0])):
   if len(co2) > 1:
-    zeros = 0
-    ones = 0
-    new_co2 = []
+    zeros = []
+    ones = []
     for n in co2:
-      if n[position] == '0':
-        zeros += 1
-      elif n[position] =='1':
-        ones += 1
-    if zeros > ones:
-      for n in co2:
-        if n[position] =='1':
-          new_co2.append(n)
+      if n[column] == '0':
+        zeros.append(n)
+      elif n[column] =='1':
+        ones.append(n)
+    if len(zeros) > len(ones):
+      co2 = ones
     else:
-      for n in co2:
-        if n[position] =='0':
-          new_co2.append(n)
-    co2 = new_co2
-  position += 1
+      co2 = zeros
 life = int(oxygen[0], 2) * int(co2[0], 2)
 print(life)
